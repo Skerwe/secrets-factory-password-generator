@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="Secrets Factory - Password Generator">
+
+  <bannerLeft>
+    <name>Secrets Factory - Password Generator</name>
+    <src>http://maven.apache.org/images/apache-maven-project.png</src>
+    <href>http://maven.apache.org/</href>
+  </bannerLeft>
+
+  <bannerRight>
+    <src>http://maven.apache.org/images/maven-small.gif</src>
+  </bannerRight>
+
+  <publishDate position="right" />
+  <version position="right" />
+
+  <poweredBy>
+    <logo name="Maven" href="https://maven.apache.org/" img="https://maven.apache.org/images/logos/maven-feather.png" />
+  </poweredBy>
+
+  <body>
+    <links>
+      <item name="Apache" href="http://www.apache.org/" />
+      <item name="Maven 2" href="http://maven.apache.org/" />
+    </links>
+
+    <menu name="Overview">
+      <item name="Home" href="home.html" />
+      <item name="Download" href="download.html" />
+    </menu>
+
+    <menu ref="reports" />
+
+    <footer><![CDATA[All rights reserved. Quintin!]]></footer>
+
+  </body>
+</project>
