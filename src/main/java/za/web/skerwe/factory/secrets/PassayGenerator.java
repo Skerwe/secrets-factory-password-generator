@@ -1,18 +1,37 @@
+/**
+  Secrets factory - a password generator
+  Copyright (C) 2019  Quintin Henn
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 package za.web.skerwe.factory.secrets;
 
 import org.passay.PasswordGenerator;
 import org.passay.CharacterData;
 import org.passay.EnglishCharacterData;
 import org.passay.CharacterRule;
-import org.passay.CharacterData;
 
 import java.util.List;
 import java.util.ArrayList;
 
 /**
+ * Uses password policy for Java (Passay) to generate sectrets.
+ *
  * @author Quintin henn
  * @since 03.09.2019
- * @version 04.09.2019
+ * @version 09.09.2019
  */
 public class PassayGenerator {
 
