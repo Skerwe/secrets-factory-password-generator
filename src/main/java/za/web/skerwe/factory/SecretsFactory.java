@@ -38,6 +38,8 @@ public class SecretsFactory {
 
   public static void main(String[] args) {
 
+    System.out.println(getLicense());
+
     PassayGenerator generator = PassayGenerator.getInstance();
     generator.setSecretLength(PassayGenerator.DEFAULT_LENGTH);
 
@@ -55,6 +57,7 @@ public class SecretsFactory {
           formatter.printHelp("ant", getOptions());
         }
         if (cmd.hasOption("version")) {
+          System.out.println(getVersionInfo());
         }
 
         if (cmd.hasOption("l")) {
@@ -79,7 +82,7 @@ public class SecretsFactory {
       }
     }
 
-    System.out.printf("\n\nGenerated secret: %s\n\n", generator.generate());
+    System.out.printf("\nGenerated secret: %s\n\n", generator.generate());
   }
 
   private static Options getOptions() {
@@ -121,10 +124,14 @@ public class SecretsFactory {
     return options;
   }
 
-  private String getLicense() {
-    return String "<program>  Copyright (C) <year>  <name of author>
-    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; type `show c' for details.";
+  private static String getLicense() {
+    return "\n<program>  Copyright (C) 2019  Quintin Henn\n" +
+    "This program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.\n" +
+    "This is free software, and you are welcome to redistribute it\n" +
+    "under certain conditions; type 'show c' for details.";
+  }
+
+  private static String getVersionInfo() {
+    return "\nVersion information";
   }
 }
