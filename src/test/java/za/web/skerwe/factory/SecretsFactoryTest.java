@@ -1,10 +1,6 @@
 package za.web.skerwe.factory;
 
 import org.junit.Test;
-import static org.hamcrest.MatcherAssert.assertThat; 
-import static org.hamcrest.Matchers.*;
-
-import java.nio.BufferOverflowException;
 
 public class SecretsFactoryTest {
 
@@ -22,4 +18,14 @@ public class SecretsFactoryTest {
   public void testSecretsFactoryPartial() {
     SecretsFactory.main(new String[]{"-l", "4", "-u", "4"});
   }
+
+  // @Test
+  // public void testSecretsFactoryHelp() {
+  //   SecretsFactory.main(new String[]{"help"});
+  // }
+
+  // @Test
+  // public void testSecretsFactoryVersion() {
+  //   SecretsFactory.main(new String[]{"version"});
+  // }
 }
