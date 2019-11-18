@@ -32,7 +32,7 @@ public class PassayGeneratorTest {
               specialCharCount++;
           }
       }
-      assertThat("Password validation failed", specialCharCount, is(lessThan(3)));
+      assertThat("Password validation failed", specialCharCount, is(equalTo(2)));
   }
 
   @Test
@@ -44,5 +44,9 @@ public class PassayGeneratorTest {
       String password1 = generator.generate();
       String password2 = generator.generate();
       assertThat("Password validation failed", password1, is(not(password2)));
+
+      String password3 = generator.generate();
+      assertThat("Password validation failed", password3, is(not(password1)));
+      assertThat("Password validation failed", password3, is(not(password2)));
   }
 }

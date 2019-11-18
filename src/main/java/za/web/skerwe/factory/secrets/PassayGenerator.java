@@ -1,10 +1,27 @@
+/**
+  Secrets Factory - Generate passwords and passphrases.
+  Copyright (C) 2019  Quintin Henn
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package za.web.skerwe.factory.secrets;
 
 import org.passay.PasswordGenerator;
 import org.passay.CharacterData;
 import org.passay.EnglishCharacterData;
 import org.passay.CharacterRule;
-import org.passay.CharacterData;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,13 +29,13 @@ import java.util.ArrayList;
 /**
  * @author Quintin henn
  * @since 03.09.2019
- * @version 04.09.2019
+ * @version 16.11.2019
  */
 public class PassayGenerator {
 
   public static final int DEFAULT_LENGTH = 12;
-  public static final int DEFAULT_LOWER_CASE = 2;
-  public static final int DEFAULT_UPPER_CASE = 2;
+  public static final int DEFAULT_LOWER_CASE = 4;
+  public static final int DEFAULT_UPPER_CASE = 4;
   public static final int DEFAULT_DIGITS = 2;
   public static final int DEFAULT_SPECIALS = 2;
 
@@ -79,7 +96,7 @@ public class PassayGenerator {
     this.configureSpecials(DEFAULT_SPECIALS);
     this.setUseSpecials(true);
 
-    this.setSecretLength(10);
+    this.setSecretLength(DEFAULT_LENGTH);
   }
 
   public void configureLowerCase(int lowerCase) {

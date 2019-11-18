@@ -1,43 +1,112 @@
-# Secrets Factory Password Generator
+# Secrets Factory - Password Generator
 
-## [Passay](https://github.com/vt-middleware/passay)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://openjdk.java.net/)
 
-Password policy enforcement for Java
+Generate configurable passwords using lowercase, uppercase, numbers and special characters.
 
-`mvn dependency:analyze`
+## Getting Started
 
-## Testing
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-- [Junit 5](https://junit.org/junit5/)
-- [Hamcrest](http://hamcrest.org/JavaHamcrest/index)
+### Prerequisites
 
-`mvn test`
+You will need Java 1.8 installed and [Apache Maven][maven] 3.6+ configured on your system path.
 
-## Reports
+It's best to use the [OpenJDK][openjdk], Windows users can get binaries from [AdoptOpenJDK][adoptopenjdk].
 
-## [PMD](https://pmd.github.io/) static code analyzer
+### Installing
 
-`mvn pmd:pmd`
+1. Clone or download the repository from GitHub:  
 
-## [Apache Maven Checkstyle Plugin](http://maven.apache.org/plugins/maven-checkstyle-plugin/)
+```bash
+git clone https://github.com/Skerwe/secrets-factory-password-generator.git
+```
 
-`mvn checkstyle:checkstyle`
+2. Compile, test and bundle the application:  
 
-## [JaCoCo](https://www.eclemma.org/jacoco/) Java Code Coverage Library
+```bash
+mvn compile package
+```
 
-## [Cobertura](https://cobertura.github.io/cobertura/)
+3. Execute the application:  
 
-`mvn cobertura:cobertura`
+```bash
+java -cp target/secrets-factory.jar za.web.skerwe.factory.SecretsFactory
+```
+
+A default password of 12 lenght will be generated, consisting of 4 uppercase, 4 lowercase, 2 numbers and 2 special characters.
+
+To configure the amount of characters:
+
+```bash
+java -cp target/dependency/;target/secrets-factory.jar za.web.skerwe.factory.SecretsFactory -l 4 -u 3 -d 3 -s 2
+```
+
+## Running the Tests
+
+The tests use [Junit][junit5] and the [Hamcrest][hamcrest] assertion library
+
+```bash
+mvn test
+```
+
+## Generating Reports
+
+### Static Code Analysis
+
+1. [PMD](https://pmd.github.io/) static code analyzer
+
+```bash
+mvn pmd:pmd
+```
+
+2. [Apache Maven Checkstyle Plugin](http://maven.apache.org/plugins/maven-checkstyle-plugin/)
+
+```bash
+mvn checkstyle:checkstyle
+```
+
+### Code Coverage
+
+1. [JaCoCo](https://www.eclemma.org/jacoco/) Java Code Coverage Library
+
+2. [Cobertura](https://cobertura.github.io/cobertura/)
+
+[Cobertura Maven Plugin](https://www.mojohaus.org/cobertura-maven-plugin/)
+
+```bash
+mvn cobertura:cobertura
+```
 
 ### Javadocs
 
-`mvn javadoc:javadoc`
+```bash
+mvn javadoc:javadoc
+```
 
-## Site
+### Project Site
 
-`mvn site:run`
+```bash
+mvn site:run
+```
 
 ### Maven Dashboard
 
-`mvn site`  
-`mvn dashboard:dashboard`
+```bash
+mvn site
+mvn dashboard:dashboard
+```
+
+## Built With
+
+* [Passay](https://github.com/vt-middleware/passay) - A password policy enforcement for Java
+
+## License
+
+This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details
+
+[openjdk]: https://openjdk.java.net/
+[adoptopenjdk]: https://adoptopenjdk.net/
+[maven]: https://maven.apache.org/
+[junit5]: https://junit.org/junit5/
+[hamcrest]: http://hamcrest.org/JavaHamcrest/index
