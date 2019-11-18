@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
+ * Uses password policy for Java (Passay) to generate sectrets.
+ *
  * @author Quintin henn
  * @since 03.09.2019
  * @version 16.11.2019
