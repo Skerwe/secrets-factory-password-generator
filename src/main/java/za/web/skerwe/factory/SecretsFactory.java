@@ -1,4 +1,4 @@
-/**
+/*
   Secrets Factory - Generate passwords and passphrases.
   Copyright (C) 2019  Quintin Henn
 
@@ -16,26 +16,33 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
- package za.web.skerwe.factory;
+package za.web.skerwe.factory;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 
 import za.web.skerwe.factory.secrets.PassayGenerator;
 
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.HelpFormatter;
-
-import org.apache.commons.cli.ParseException;
-
 /**
+ * Utility to start the password and passphrase generators.
+ * 
  * @author Quintin henn
  * @since 04.09.2019
- * @version 18.11.2019
+ * @version 19.11.2019
  */
 public class SecretsFactory {
 
+  private SecretsFactory() {}
+
+  /**
+   * Generate passwords and passphrases based on command line arguments
+   * Prints version, license, help and useage information.
+   */
   public static void main(String[] args) {
 
     System.out.println(getLicense());
@@ -90,28 +97,28 @@ public class SecretsFactory {
     Option version = new Option("version", "print the version information and exit");
 
     Option lowerCase = Option.builder("l")
-      .argName("value")
-      .hasArg()
-      .desc("number of lower case characters")
-      .build();
+        .argName("value")
+        .hasArg()
+        .desc("number of lower case characters")
+        .build();
 
     Option upperCase = Option.builder("u")
-      .argName("value")
-      .hasArg()
-      .desc("number of upper case character")
-      .build();
+        .argName("value")
+        .hasArg()
+        .desc("number of upper case character")
+        .build();
 
     Option digits = Option.builder("d")
-      .argName("value")
-      .hasArg()
-      .desc("numbers of digits")
-      .build();
+        .argName("value")
+        .hasArg()
+        .desc("numbers of digits")
+        .build();
 
     Option specials = Option.builder("s")
-      .argName("value")
-      .hasArg()
-      .desc("number of special characters")
-      .build();
+        .argName("value")
+        .hasArg()
+        .desc("number of special characters")
+        .build();
 
     Options options = new Options();
     options.addOption(help);
@@ -125,10 +132,10 @@ public class SecretsFactory {
   }
 
   private static String getLicense() {
-    return "\n<program>  Copyright (C) 2019  Quintin Henn\n" +
-    "This program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.\n" +
-    "This is free software, and you are welcome to redistribute it\n" +
-    "under certain conditions; type 'show c' for details.";
+    return "\n<program>  Copyright (C) 2019  Quintin Henn\n"
+      + "This program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.\n"
+      + "This is free software, and you are welcome to redistribute it\n"
+      + "under certain conditions; type 'show c' for details.";
   }
 
   private static String getVersionInfo() {

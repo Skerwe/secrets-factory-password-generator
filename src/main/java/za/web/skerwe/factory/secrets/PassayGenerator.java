@@ -1,4 +1,4 @@
-/**
+/*
   Secrets Factory - Generate passwords and passphrases.
   Copyright (C) 2019  Quintin Henn
 
@@ -18,33 +18,46 @@
 
 package za.web.skerwe.factory.secrets;
 
-import org.passay.PasswordGenerator;
-import org.passay.CharacterData;
-import org.passay.EnglishCharacterData;
-import org.passay.CharacterRule;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.passay.CharacterData;
+import org.passay.CharacterRule;
+import org.passay.EnglishCharacterData;
+
+import org.passay.PasswordGenerator;
 
 /**
  * Uses password policy for Java (Passay) to generate sectrets.
  *
  * @author Quintin henn
  * @since 03.09.2019
- * @version 16.11.2019
+ * @version 19.11.2019
  */
-public class PassayGenerator {
+public final class PassayGenerator {
 
+  /** The default suggested password lenght. */
   public static final int DEFAULT_LENGTH = 12;
+
+  /** The default lowercase characters count in a password. */
   public static final int DEFAULT_LOWER_CASE = 4;
+
+  /** The default uppercase characters count in a password. */
   public static final int DEFAULT_UPPER_CASE = 4;
+
+  /** The default amount of numbers in a password. */
   public static final int DEFAULT_DIGITS = 2;
+
+  /** The default special characters count in a password. */
   public static final int DEFAULT_SPECIALS = 2;
 
   private static PassayGenerator passwordGenerator;
 
   private PassayGenerator() {}
 
+  /**
+   * Obtain an instance of the singleton <code>PassayGenerator</code>.
+   */
   public static PassayGenerator getInstance() {
     if (passwordGenerator == null) {
       passwordGenerator = new PassayGenerator();
@@ -66,6 +79,11 @@ public class PassayGenerator {
   private boolean useDigits;
   private boolean useSpecials;
 
+  /**
+   * Generate a password of the configured lenght, 
+   * amount of lowercase, uppercase, special characters and numbers.
+   * @return the generated password
+   */
   public String generate() {
 
     List<CharacterRule> rules = new ArrayList<>();
@@ -85,6 +103,9 @@ public class PassayGenerator {
     return this.generator.generatePassword(length, rules);
   }
 
+  /**
+   * Reset all configurations to their default values.
+   */
   public void useDefaultConfiguration() {
     this.configureLowerCase(DEFAULT_LOWER_CASE);
     this.setUseLowerCase(true);
@@ -101,25 +122,41 @@ public class PassayGenerator {
     this.setSecretLength(DEFAULT_LENGTH);
   }
 
-  public void configureLowerCase(int lowerCase) {
+  /**
+   * Configure the amount of lowercase characters in this password.
+   * @param lowerCase the lowercase character count
+   */
+  public void configureLowerCase(final int lowerCase) {
     CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
     this.lowerCaseRule = new CharacterRule(lowerCaseChars);
     this.lowerCaseRule.setNumberOfCharacters(lowerCase);
   }
 
-  public void configureUpperCase(int upperCase) {
+  /**
+   * Configure the amount of uppercase characters in this password.
+   * @param upperCase the uppercase character count
+   */
+  public void configureUpperCase(final int upperCase) {
     CharacterData upperCaseChars = EnglishCharacterData.UpperCase;
     this.upperCaseRule = new CharacterRule(upperCaseChars);
     this.upperCaseRule.setNumberOfCharacters(upperCase);
   }
 
-  public void configureDigits(int digits) {
+  /**
+   * Configure the amount of numbers in this password.
+   * @param digits the numbers count
+   */
+  public void configureDigits(final int digits) {
     CharacterData digitChars = EnglishCharacterData.Digit;
     this.digitRule = new CharacterRule(digitChars);
     this.digitRule.setNumberOfCharacters(digits);
   }
 
-  public void configureSpecials(int specials) {
+  /**
+   * Configure the amount of special characters in this password.
+   * @param specials the special characters count
+   */
+  public void configureSpecials(final int specials) {
     CharacterData specialChars = new CharacterData() {
       public String getErrorCode() {
           return "Password contains invalid special character!";
@@ -133,26 +170,49 @@ public class PassayGenerator {
     this.splCharRule.setNumberOfCharacters(specials);
   }
 
+  /**
+   * Set the lenght of the password string.
+   * @param length the password lenght
+   */
   public void setSecretLength(int length) {
     this.length = length;
   }
 
+  /**
+   * Set the use of lowercase characters in the password.
+   * @param useLowerCase should lowercase characters be used
+   */
   public void setUseLowerCase(boolean useLowerCase) {
     this.useLowerCase = useLowerCase;
   }
 
+  /**
+   * Set the use of uppercase characters in the password.
+   * @param useUpperCase should uppercase characters be used
+   */
   public void setUseUpperCase(boolean useUpperCase) {
     this.useUpperCase = useUpperCase;
   }
 
+  /**
+   * Set the use of numbers in the password.
+   * @param useDigits should numbers be used
+   */
   public void setUseDigits(boolean useDigits) {
     this.useDigits = useDigits;
   }
 
+  /**
+   * Set the use of special characters in the password.
+   * @param useSpecials should special characters be used
+   */
   public void setUseSpecials(boolean useSpecials) {
     this.useSpecials = useSpecials;
   }
 
+  /**
+   * Reset the use of lowercase, uppercase, special characters and numbers.
+   */
   public void resetConfiguration() {
     this.useLowerCase = false;
     this.useUpperCase = false;
