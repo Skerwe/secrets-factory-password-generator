@@ -2,6 +2,8 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://openjdk.java.net/)
 
+https://github.com/Skerwe/secrets-factory-password-generator/workflows/Build%20with%20Maven/badge.svg
+
 Generate configurable passwords using lowercase, uppercase, numbers and special characters.
 
 ## Getting Started
