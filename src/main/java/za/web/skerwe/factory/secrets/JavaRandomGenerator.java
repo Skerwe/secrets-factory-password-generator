@@ -22,23 +22,24 @@ import java.util.Random;
 
 /**
  * Generates a non cofigurable 12 lenght password.
- * Utilising <code>java.util.Random</code> to select a 
+ * Utilising <code>java.util.Random</code> to select a
  * random letter from a list of allowed characters.
- * 
+ *
  * @author Quintin henn
  * @since 16.11.2019
- * @version 19.11.2019
+ * @version 30.11.2019
  */
 public class JavaRandomGenerator {
 
   /** Special character codes for: !, #, $, %, &, (, ), *, @, [, ], ^,{, }. */
   private static final char[] specialCharacters = {
       33, 35, 36, 37, 38, 40, 41, 42, 64, 91, 93, 94, 123, 125};
-  
+
   private static Random random = new Random();
 
   /**
    * Generates a 12 lenght string of random characters.
+   * @return generates a password using the basic configuration
    */
   public String generatePassword() {
 

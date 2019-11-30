@@ -32,7 +32,7 @@ import org.passay.PasswordGenerator;
  *
  * @author Quintin henn
  * @since 03.09.2019
- * @version 19.11.2019
+ * @version 30.11.2019
  */
 public final class PassayGenerator {
 
@@ -57,6 +57,7 @@ public final class PassayGenerator {
 
   /**
    * Obtain an instance of the singleton <code>PassayGenerator</code>.
+   * @return instance of the password generator that implements Passay
    */
   public static PassayGenerator getInstance() {
     if (passwordGenerator == null) {
@@ -80,7 +81,7 @@ public final class PassayGenerator {
   private boolean useSpecials;
 
   /**
-   * Generate a password of the configured lenght, 
+   * Generate a password of the configured lenght,
    * amount of lowercase, uppercase, special characters and numbers.
    * @return the generated password
    */

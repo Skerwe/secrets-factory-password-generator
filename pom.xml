@@ -10,8 +10,7 @@
 
   <name>secrets-factory</name>
   <description>Secret, password and passphrase generator</description>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.skerwe.web.za</url>
+  <url>https://github.com/Skerwe/secrets-factory-password-generator</url>
   <inceptionYear>2019</inceptionYear>
 
   <!-- Organization information -->
@@ -44,9 +43,6 @@
         <role>developer</role>
       </roles>
       <timezone>Africa/Johannesburg</timezone>
-      <properties>
-        <picUrl>http://www.example.com/jdoe/pic</picUrl>
-      </properties>
     </developer>
   </developers>
 
@@ -258,23 +254,6 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>dashboard-maven-plugin</artifactId>
         <version>1.0.0-beta-1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.1</version>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <!-- configure the plugin here -->
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

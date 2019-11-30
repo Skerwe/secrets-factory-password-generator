@@ -1,0 +1,1 @@
+java -cp target/secrets-factory-jar-with-dependencies.jar za.web.skerwe.factory.SecretsFactory

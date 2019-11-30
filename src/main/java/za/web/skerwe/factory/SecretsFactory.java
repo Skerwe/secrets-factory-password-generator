@@ -30,10 +30,10 @@ import za.web.skerwe.factory.secrets.PassayGenerator;
 
 /**
  * Utility to start the password and passphrase generators.
- * 
+ *
  * @author Quintin henn
  * @since 04.09.2019
- * @version 19.11.2019
+ * @version 30.11.2019
  */
 public class SecretsFactory {
 
@@ -42,6 +42,7 @@ public class SecretsFactory {
   /**
    * Generate passwords and passphrases based on command line arguments
    * Prints version, license, help and useage information.
+   * @param args command line arguments for customising the password
    */
   public static void main(String[] args) {
 
