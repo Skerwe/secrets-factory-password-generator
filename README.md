@@ -68,6 +68,12 @@ mvn pmd:pmd
 mvn checkstyle:checkstyle
 ```
 
+### Unit Test Report
+
+```bash
+mvn surefire:test
+```
+
 ### Code Coverage
 
 1. [JaCoCo](https://www.eclemma.org/jacoco/) Java Code Coverage Library
