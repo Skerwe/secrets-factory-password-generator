@@ -7,7 +7,10 @@ import static org.hamcrest.Matchers.*;
 public class JavaRandomGeneratorTest {
 
   @Test
-  public void testGetInstance() {
-
+  public void testGeneratePassword() {
+    JavaRandomGenerator generator = new JavaRandomGenerator();
+    String password = generator.generatePassword();
+    assertThat(password, is(notNullValue()));
+    assertThat(password.length(), is(equalTo(12)));
   }
 }

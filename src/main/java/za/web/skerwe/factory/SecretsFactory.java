@@ -33,7 +33,7 @@ import za.web.skerwe.factory.secrets.PassayGenerator;
  *
  * @author Quintin henn
  * @since 04.09.2019
- * @version 30.11.2019
+ * @version 15.12.2019
  */
 public class SecretsFactory {
 
@@ -48,25 +48,45 @@ public class SecretsFactory {
 
     System.out.println(getLicense());
 
-    PassayGenerator generator = PassayGenerator.getInstance();
-    generator.setSecretLength(PassayGenerator.DEFAULT_LENGTH);
+    
 
     if (args.length == 0) {
-      generator.useDefaultConfiguration();
+      generateDefaultPassayPassword();
     } else {
       try {
-        generator.resetConfiguration();
 
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(getOptions(), args);
 
+        if (cmd.getOptions().length == 0) {
+          System.out.printf("\nUnrecognised command(s) %s\n\n", cmd.getArgList().toString());
+          HelpFormatter formatter = new HelpFormatter();
+          formatter.printHelp("sgen [command]", getOptions());
+          return;
+        }
+
         if (cmd.hasOption("help")) {
+          System.out.println();
           HelpFormatter formatter = new HelpFormatter();
           formatter.printHelp("sgen", getOptions());
+          return;
         }
         if (cmd.hasOption("version")) {
           System.out.println(getVersionInfo());
+          return;
         }
+
+        if (cmd.hasOption("w")) {
+          System.out.println(getWarranty());
+          return;
+        }
+        if (cmd.hasOption("c")) {
+          System.out.println(getTermsAndConditions());
+          return;
+        }
+
+        PassayGenerator generator = PassayGenerator.getInstance();
+        generator.resetConfiguration();
 
         if (cmd.hasOption("l")) {
           generator.configureLowerCase(Integer.valueOf(cmd.getOptionValue("l")));
@@ -84,18 +104,26 @@ public class SecretsFactory {
           generator.configureSpecials(Integer.valueOf(cmd.getOptionValue("s")));
           generator.setUseSpecials(true);
         }
+
+        System.out.printf("\nGenerated secret: %s\n\n", generator.generate());
       } catch (ParseException | NumberFormatException e) {
         System.err.println("Parsing failed. Reason: " + e.getMessage());
         System.exit(1);
       }
     }
+  }
 
-    System.out.printf("\nGenerated secret: %s\n\n", generator.generate());
+  private static void generateDefaultPassayPassword() {
+    PassayGenerator generator = PassayGenerator.getInstance();
+    generator.useDefaultConfiguration();
+    System.out.printf("\nGenerated default configured secret: %s\n\n", generator.generate());
   }
 
   private static Options getOptions() {
-    Option help = new Option("help", "print this message");
-    Option version = new Option("version", "print the version information and exit");
+    Option help = new Option("help", "print this usage message");
+    Option version = new Option("version", "print the version information");
+    Option warranty = new Option("w", "print the warranty information");
+    Option conditions = new Option("c", "print the terms & conditions");
 
     Option lowerCase = Option.builder("l")
         .argName("value")
@@ -128,18 +156,28 @@ public class SecretsFactory {
     options.addOption(upperCase);
     options.addOption(digits);
     options.addOption(specials);
+    options.addOption(warranty);
+    options.addOption(conditions);
 
     return options;
   }
 
   private static String getLicense() {
-    return "\n<program>  Copyright (C) 2019  Quintin Henn\n"
-      + "This program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.\n"
+    return "\nSecrets Factory  Copyright (C) 2019  Quintin Henn\n"
+      + "This program comes with ABSOLUTELY NO WARRANTY; for details type 'sgen -w'.\n"
       + "This is free software, and you are welcome to redistribute it\n"
-      + "under certain conditions; type 'show c' for details.";
+      + "under certain conditions; type 'sgen -c' for details.";
   }
 
   private static String getVersionInfo() {
     return "\nVersion information";
+  }
+
+  private static String getWarranty() {
+    return "\nWarranty information";
+  }
+
+  private static String getTermsAndConditions() {
+    return "\nTerms and Conditions";
   }
 }

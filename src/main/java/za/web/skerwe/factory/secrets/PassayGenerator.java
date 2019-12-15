@@ -32,11 +32,11 @@ import org.passay.PasswordGenerator;
  *
  * @author Quintin henn
  * @since 03.09.2019
- * @version 30.11.2019
+ * @version 15.12.2019
  */
 public final class PassayGenerator {
 
-  /** The default suggested password lenght. */
+  /** The default suggested password length. */
   public static final int DEFAULT_LENGTH = 12;
 
   /** The default lowercase characters count in a password. */
@@ -81,7 +81,7 @@ public final class PassayGenerator {
   private boolean useSpecials;
 
   /**
-   * Generate a password of the configured lenght,
+   * Generate a password of the configured length,
    * amount of lowercase, uppercase, special characters and numbers.
    * @return the generated password
    */
@@ -99,6 +99,13 @@ public final class PassayGenerator {
     }
     if (useSpecials) {
       rules.add(splCharRule);
+    }
+
+    if (this.length == 0) {
+      this.length = this.lowerCaseRule.getNumberOfCharacters()
+       + this.upperCaseRule.getNumberOfCharacters() 
+       + this.digitRule.getNumberOfCharacters() 
+       + this.splCharRule.getNumberOfCharacters();
     }
 
     return this.generator.generatePassword(length, rules);
@@ -172,8 +179,8 @@ public final class PassayGenerator {
   }
 
   /**
-   * Set the lenght of the password string.
-   * @param length the password lenght
+   * Set the length of the password string.
+   * @param length the password length
    */
   public void setSecretLength(int length) {
     this.length = length;
