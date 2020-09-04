@@ -18,29 +18,29 @@ It's best to use the [OpenJDK][openjdk], Windows users can get binaries from [Ad
 
 ### Installing
 
-1. Clone or download the repository from GitHub:  
+1. Clone or download the repository from GitHub:
 
-```bash
-git clone https://github.com/Skerwe/secrets-factory-password-generator.git
-```
+    ```shell
+    git clone https://github.com/Skerwe/secrets-factory-password-generator.git
+    ```
 
 2. Compile, test and bundle the application:  
 
-```bash
-mvn compile package
-```
+    ```shell
+    mvn compile package
+    ```
 
 3. Execute the application:  
 
-```bash
-java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.SecretsFactory
-```
+    ```shell
+    java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.SecretsFactory
+    ```
 
 A default password of 12 lenght will be generated, consisting of 4 uppercase, 4 lowercase, 2 numbers and 2 special characters.
 
 To configure the amount of characters:
 
-```bash
+```shell
 java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.SecretsFactory -l 4 -u 3 -d 3 -s 2
 ```
 
@@ -48,7 +48,7 @@ java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.Se
 
 The tests use [Junit][junit5] and the [Hamcrest][hamcrest] assertion library
 
-```bash
+```shell
 mvn test
 ```
 
@@ -58,19 +58,19 @@ mvn test
 
 1. [PMD](https://pmd.github.io/) static code analyzer
 
-```bash
-mvn pmd:pmd
-```
+    ```shell
+    mvn pmd:pmd
+    ```
 
 2. [Apache Maven Checkstyle Plugin](http://maven.apache.org/plugins/maven-checkstyle-plugin/)
 
-```bash
-mvn checkstyle:checkstyle
-```
+    ```shell
+    mvn checkstyle:checkstyle
+    ```
 
 ### Unit Test Report
 
-```bash
+```shell
 mvn surefire:test
 ```
 
@@ -82,26 +82,27 @@ mvn surefire:test
 
 [Cobertura Maven Plugin](https://www.mojohaus.org/cobertura-maven-plugin/)
 
-```bash
+```shell
 mvn cobertura:cobertura
 ```
 
 ### Javadocs
 
-```bash
+```shell
 mvn javadoc:javadoc
 ```
 
 ### Project Site
 
 Generate and run a static server to serve the site
-```bash
+
+```shell
 mvn site:run
 ```
 
 ### Maven Dashboard
 
-```bash
+```shell
 mvn site
 mvn dashboard:dashboard
 ```
