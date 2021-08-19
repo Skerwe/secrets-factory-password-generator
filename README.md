@@ -44,6 +44,8 @@ To configure the amount of characters:
 java -cp target/secrets-factory-1.2-RELEASE-shaded.jar za.web.skerwe.factory.SecretsFactory -l 4 -u 3 -d 3 -s 2
 ```
 
+Under the `target/` folder the *secrets-factory.jar* is the application without dependencies, the *secrets-factory-1.2-RELEASE-shaded.jar* is bundled with the dependencies.
+
 ## Running the Tests
 
 The tests use [Junit][junit5] and the [Hamcrest][hamcrest] assertion library
@@ -51,6 +53,9 @@ The tests use [Junit][junit5] and the [Hamcrest][hamcrest] assertion library
 ```shell
 mvn test
 ```
+
+The test will run *Checkstyle*, *JaCoCo* and the *Surefire* test report plugins  
+Individual commands are listed below.
 
 ## Generating Reports
 
@@ -62,17 +67,23 @@ mvn test
     mvn pmd:pmd
     ```
 
+    Results are in the `target/pmd.xml` file.
+
 2. [Apache Maven Checkstyle Plugin](http://maven.apache.org/plugins/maven-checkstyle-plugin/)
 
     ```shell
     mvn checkstyle:checkstyle
     ```
 
+    Results are in the `target/checkstyle-result.xml` file.
+
 ### Unit Test Report
 
 ```shell
 mvn surefire:test
 ```
+
+Results are in the `target/surefire-reports/` folder.
 
 ### Code Coverage
 
@@ -91,6 +102,8 @@ mvn cobertura:cobertura
 ```shell
 mvn javadoc:javadoc
 ```
+
+Results are in the `target/site/apidocs/` folder. See **mvn site:run** below.
 
 ### Project Site
 
