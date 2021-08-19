@@ -32,7 +32,7 @@ import org.passay.PasswordGenerator;
  *
  * @author Quintin henn
  * @since 03.09.2019
- * @version 15.12.2019
+ * @version 19.08.2021
  */
 public final class PassayGenerator {
 
@@ -103,9 +103,9 @@ public final class PassayGenerator {
 
     if (this.length == 0) {
       this.length = this.lowerCaseRule.getNumberOfCharacters()
-       + this.upperCaseRule.getNumberOfCharacters() 
-       + this.digitRule.getNumberOfCharacters() 
-       + this.splCharRule.getNumberOfCharacters();
+        + this.upperCaseRule.getNumberOfCharacters()
+        + this.digitRule.getNumberOfCharacters()
+        + this.splCharRule.getNumberOfCharacters();
     }
 
     return this.generator.generatePassword(length, rules);
