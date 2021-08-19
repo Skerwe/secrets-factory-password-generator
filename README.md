@@ -33,7 +33,7 @@ It's best to use the [OpenJDK][openjdk], Windows users can get binaries from [Ad
 3. Execute the application:  
 
     ```shell
-    java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.SecretsFactory
+    java -cp target/secrets-factory-1.2-RELEASE-shaded.jar za.web.skerwe.factory.SecretsFactory
     ```
 
 A default password of 12 lenght will be generated, consisting of 4 uppercase, 4 lowercase, 2 numbers and 2 special characters.
@@ -41,7 +41,7 @@ A default password of 12 lenght will be generated, consisting of 4 uppercase, 4 
 To configure the amount of characters:
 
 ```shell
-java -cp target/secrets-factory-1.2-SNAPSHOT-shaded.jar za.web.skerwe.factory.SecretsFactory -l 4 -u 3 -d 3 -s 2
+java -cp target/secrets-factory-1.2-RELEASE-shaded.jar za.web.skerwe.factory.SecretsFactory -l 4 -u 3 -d 3 -s 2
 ```
 
 ## Running the Tests

@@ -5,7 +5,7 @@
 
   <groupId>za.web.skerwe</groupId>
   <artifactId>secrets-factory</artifactId>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2-RELEASE</version>
   <packaging>jar</packaging>
 
   <name>secrets-factory</name>
