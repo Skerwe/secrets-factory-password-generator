@@ -30,7 +30,7 @@ import org.passay.PasswordGenerator;
 /**
  * Uses password policy for Java (Passay) to generate sectrets.
  *
- * @author Quintin henn
+ * @author Quintin Henn
  * @since 03.09.2019
  * @version 19.08.2021
  */

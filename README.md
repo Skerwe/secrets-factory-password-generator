@@ -12,8 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You will need Java 1.8 installed and [Apache Maven][maven] 3.6+ configured on your system path.
-
+You will need Java 1.8 installed and [Apache Maven][maven] 3.6+ configured on your system path.  
 It's best to use the [OpenJDK][openjdk], Windows users can get binaries from [AdoptOpenJDK][adoptopenjdk].
 
 ### Installing
@@ -122,6 +121,8 @@ mvn dashboard:dashboard
 
 ## Built With
 
+* [Java](https://www.java.com/en/) programming language
+* [Apache Maven][maven] build tool
 * [Passay](https://github.com/vt-middleware/passay) - A password policy enforcement for Java
 
 ## License
